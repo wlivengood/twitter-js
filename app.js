@@ -1,7 +1,15 @@
 var express = require('express');
 var chalk = require ('chalk');
+var swig = require('swig');
 
 var app = express();
+
+app.engine('html', swig.renderFile);
+app.set("view engine", "html");
+app.set("views", __dirname + '/views');
+swig.setDefaults({ cache: false });
+
+
 
 app.use(function(req, res, next) {
 	console.log(chalk.red(req.method) + ' ' + chalk.blue(req.path) + ' ' + chalk.green(res.statusCode));
@@ -14,7 +22,8 @@ app.use("/special/",function(req, res, next) {
 });
 
 app.get("/", function(req, res) {
-	res.send("Welcome!");
+	var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
+	res.render( 'index', {title: 'Hall of Fame', people: people} );
 });
 
 app.get("/news", function(req, res) {
