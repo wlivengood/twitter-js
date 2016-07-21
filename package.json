@@ -9,9 +9,11 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": "https://github.com/wlivengood/twitter-js",
   "dependencies": {
     "chalk": "^1.1.3",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "lodash": "^4.13.1"
   },
   "devDependencies": {
     "nodemon": "^1.9.2",
