@@ -12,12 +12,14 @@
       100 followers
     </div>
     <div class="col-md-9">
-    
+    	<ul>
       <!-- display tweets here -->
       {% for tweet in tweets %}
+      	<li class = "name"><a href="/users/{{tweet.name}}">{{tweet.name}}</a></li>
         <li>{{tweet.content}}</li>
+        <li><a href="tweets/{{tweet.id}}">Tweet # {{tweet.id}}</a></li>
       {% endfor %}
-      
+      </ul>
     </div>
   </div>
     

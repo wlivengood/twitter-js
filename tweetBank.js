@@ -3,7 +3,13 @@ var _ = require("lodash");
 var data = [];
 
 function add (name, content) {
-  data.push({ name: name, content: content });
+  var tweetID = 1;
+  while (true) {
+  	if (find(['id', tweetID]).length)
+  	  tweetID ++;
+  	else break;
+  }
+  data.push({ name: name, content: content, id: tweetID });
 }
 
 function list () {
@@ -34,4 +40,3 @@ var getFakeTweet = function() {
 for (var i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
-
