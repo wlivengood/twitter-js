@@ -12,8 +12,8 @@ function add (name, content) {
   data.push({ name: name, content: content, id: tweetID });
 }
 
-function list () {
-  return _.cloneDeep(data);
+function list () {return _.cloneDeep(data
+  );
 }
 
 function find (properties) {

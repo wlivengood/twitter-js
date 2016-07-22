@@ -1,7 +1,6 @@
 var express = require('express');
 var chalk = require ('chalk');
 var swig = require('swig');
-
 var app = express();
 
 app.engine('html', swig.renderFile);
