@@ -22,7 +22,7 @@
     <input type="submit" value="Submit" />
   </form>
 {% endif %}
-    <div class="col-md-9">
+    <div id="tweetList" class="col-md-9">
     	<ul>
       <!-- display tweets here -->
       {% for tweet in tweets %}
@@ -33,5 +33,15 @@
       </ul>
     </div>
   </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect();
+  socket.on('newTweet', function (tweet) { 
+    $("#tweetList ul").append("<li class='name'><a href='/users/" + tweet.name + "'>" + tweet.name + "</a></li>");
+    $("#tweetList ul").append("<li>" + tweet.content + "</li>");
+    
+  }); 
+</script>
     
 {% endblock %}
